@@ -1,0 +1,14 @@
+<?php
+
+# Settings
+$settings = array (
+	'hostname' => 'localhost',
+	'username' => 'the_username',
+	'password' => 'the_password',
+);
+
+# Load and run the projects database class
+require_once ('projects-database/projectsDatabase.php');
+new projectsDatabase ($settings);
+
+?>

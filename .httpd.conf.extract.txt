@@ -1,0 +1,24 @@
+# Apache httpd.conf extract providing URL routing and other directives
+
+#   Example usage in httpd.conf:
+#   
+#   # Projects database system
+#   Include /path/to/projects-database/.httpd.conf.extract.txt
+#   Use MacroDatasetFeedback "/path/to/projects/database" "/path/to/projects-database/:/path/to/php/libraries/"
+
+
+<Macro MacroProjectsDatabase $applicationBaseUrl $includePath>
+	
+	<Location $applicationBaseUrl>
+		php_value include_path "$includePath"
+	</Location>
+	
+	Use MacroFrontControllerApplication "$applicationBaseUrl/" "Projects database"
+	
+	# Application directives
+	RewriteRule ^$applicationBaseUrl/(add|general).html$ $applicationBaseUrl/index.html?action=$1 [L,QSA]
+	
+	# Editing
+	Use MacroSinenomineEmbeddedTable "$applicationBaseUrl" "/projects" "editing"
+	
+</Macro>
