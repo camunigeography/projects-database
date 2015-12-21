@@ -178,7 +178,7 @@ class projectsDatabase extends frontControllerApplication
 			'attributes' => $this->formDataBindingAttributes (),
 		));
 		#!# Reply-to field needs to be fully-qualified with e-mail domain
-		$form->setOutputEmail ($recipients, $this->settings['administratorEmail'], 'Project request', NULL, 'client');
+		$form->setOutputEmail ($recipients, $this->settings['administratorEmail'], $this->settings['applicationName'] . ': project submission', NULL, 'client');
 		$form->setOutputScreen ();
 		if ($result = $form->process ($html)) {
 			
