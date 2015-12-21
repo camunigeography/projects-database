@@ -149,9 +149,11 @@ class projectsDatabase extends frontControllerApplication
 		
 		# Determine the recipients
 		$recipients = array ();
+		$recipients[] = $this->settings['administratorEmail'];		// Ensure this is first, i.e. the To: address
 		foreach ($this->administrators as $administrator) {
 			$recipients[] = $administrator['email'];
 		}
+		$recipients = array_unique ($recipients);
 		
 		# Create a new form
 		$form = new form (array (
