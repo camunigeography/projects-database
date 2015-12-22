@@ -172,7 +172,7 @@ class projectsDatabase extends frontControllerApplication
 		$form->dataBinding (array (
 			'database' => $this->settings['database'],
 			'table' => $this->settings['table'],
-			'includeOnly' => array ('name', 'client', 'description', ),
+			'includeOnly' => ($this->userIsAdministrator ? array () : array ('name', 'client', 'description')),
 			'intelligence' => true,
 			'size' => 70,
 			'attributes' => $this->formDataBindingAttributes (),
