@@ -31,9 +31,9 @@ class projectsDatabase extends frontControllerApplication
 		# Specify additional actions
 		$actions = array (
 			'home' => array (
-				'description' => 'Projects database',
+				'description' => 'Projects listing',
 				'url' => '',
-				'tab' => 'Projects database',
+				'tab' => 'Projects listing',
 				'icon' => 'house',
 			),
 			'add' => array (
