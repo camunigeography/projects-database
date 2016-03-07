@@ -1,1 +1,4 @@
 #projectsdatabase th {background-color: #f7f7f7;}
+#projectsdatabase table tr.completed td {background-color: #d1f7cc;}
+#projectsdatabase table tr.specced td {background-color: #fbffaa;}
+#projectsdatabase table tr.developing td {background-color: #ffcc99;}

@@ -104,10 +104,17 @@ class projectsDatabase extends frontControllerApplication
 		$html = '';
 		
 		# Get the list of projects
-		if (!$projects = $this->databaseConnection->select ($this->settings['database'], $this->settings['table'], $conditions = "status != 'proposed'", $columns = array (), true, $orderBy = "FIELD(status, 'developing','additional','specced','proposed','completed'), id DESC")) {
+		if (!$projectsRaw = $this->databaseConnection->select ($this->settings['database'], $this->settings['table'], $conditions = "status != 'proposed'", $columns = array (), true, $orderBy = "FIELD(status, 'developing','additional','specced','proposed','completed'), id DESC")) {
 			$html = "\n<p>There are no confirmed projects at present.</p>";
 			echo $html;
 			return;
+		}
+		
+		# Attach status string to the key for CSS styling purposes
+		$projects = array ();
+		foreach ($projectsRaw as $id => $project) {
+			$key = $id . ' ' . lcfirst ($project['status']);
+			$projects[$key] = $project;
 		}
 		
 		# Assemble fields
@@ -134,7 +141,7 @@ class projectsDatabase extends frontControllerApplication
 		$html .= "\n<p>You can <a href=\"{$this->baseUrl}/add.html\">request a project</a>.</p>";
 		$tableHeadingSubstitutions = $this->databaseConnection->getHeadings ($this->settings['database'], $this->settings['table']);
 		$html .= "\n" . '<!-- Enable table sortability: --><script language="javascript" type="text/javascript" src="/sitetech/sorttable.js"></script>';
-		$html .= application::htmlTable ($projects, $tableHeadingSubstitutions, 'lines sortable" id="sortable', $keyAsFirstColumn = false, false, $allowHtml);
+		$html .= application::htmlTable ($projects, $tableHeadingSubstitutions, 'lines sortable" id="sortable', $keyAsFirstColumn = false, false, $allowHtml, false, false, $addRowKeyClasses = true);
 		
 		# Show the HTML
 		echo $html;
