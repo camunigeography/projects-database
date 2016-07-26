@@ -4,7 +4,7 @@
 #   
 #   # Projects database system
 #   Include /path/to/projects-database/.httpd.conf.extract.txt
-#   Use MacroDatasetFeedback "/path/to/projects/database" "/path/to/projects-database/:/path/to/php/libraries/"
+#   Use MacroProjectsDatabase "/path/to/projects-database" "/path/to/projects-database/:/path/to/php/libraries/"
 
 
 <Macro MacroProjectsDatabase $applicationBaseUrl $includePath>

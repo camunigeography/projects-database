@@ -1,5 +1,5 @@
 Projects database system
-=======================
+========================
 
 This is a PHP application which implements a simple projects database system.
 
