@@ -18,6 +18,7 @@ class projectsDatabase extends frontControllerApplication
 			'emailDomain' => 'cam.ac.uk',
 			'administrators' => true,
 			'useEditing' => true,
+			'databaseStrictWhere' => true,
 		);
 		
 		# Return the defaults
