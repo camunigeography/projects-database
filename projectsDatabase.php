@@ -120,7 +120,7 @@ class projectsDatabase extends frontControllerApplication
 		# Assemble fields
 		foreach ($projects as $id => $project) {
 			if ($this->userIsAdministrator) {
-				$projects[$id]['id'] = "<a href=\"{$this->baseUrl}/projects/{$id}/edit.html\"><strong>" . $projects[$id]['id'] . '</strong></a>';
+				$projects[$id]['id'] = "<a href=\"{$this->baseUrl}/projects/{$project['id']}/edit.html\"><strong>" . $projects[$id]['id'] . '</strong></a>';
 			}
 			$projects[$id]['name'] = "<a href=\"{$projects[$id]['url']}\" target=\"_blank\">" . htmlspecialchars ($projects[$id]['name']) . '</a>';
 			unset ($projects[$id]['url']);
