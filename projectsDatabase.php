@@ -86,7 +86,8 @@ class projectsDatabase extends frontControllerApplication
 			  `finishDate` date DEFAULT NULL COMMENT 'Finish date',
 			  `description` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Description',
 			  `progress` text COLLATE utf8_unicode_ci COMMENT 'Progress',
-			  `days` int(11) NOT NULL COMMENT 'Days spent',
+			  `daysEstimated` int(11) NULL DEFAULT NULL COMMENT 'Days estimated',
+			  `daysSpent` int(11) NOT NULL COMMENT 'Days spent',
 			  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'URL'
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table of projects';
 			
