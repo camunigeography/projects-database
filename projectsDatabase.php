@@ -128,9 +128,10 @@ class projectsDatabase extends frontControllerApplication
 			unset ($projects[$id]['url']);
 			$projects[$id]['status'] = ucfirst ($projects[$id]['status']);
 			unset ($projects[$id]['client']);
+			$projects[$id]['description'] = nl2br (htmlspecialchars ($projects[$id]['description']));
 			$projects[$id]['progress'] = nl2br (htmlspecialchars ($projects[$id]['progress']));
 		}
-		$allowHtml = array ('id', 'name', 'progress');
+		$allowHtml = array ('id', 'name', 'description', 'progress');
 		
 		# Find the earliest date
 		$earliestDate = $this->databaseConnection->selectOneField ($this->settings['database'], $this->settings['table'], 'finishDate', 'finishDate IS NOT NULL', array (), false, $orderBy = 'finishDate', $limit = 1);
