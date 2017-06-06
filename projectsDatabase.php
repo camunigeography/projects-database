@@ -38,9 +38,9 @@ class projectsDatabase extends frontControllerApplication
 				'icon' => 'house',
 			),
 			'add' => array (
-				'description' => 'Request a project',
+				'description' => ($this->userIsAdministrator ? 'Add' : 'Request') . ' a project',
 				'url' => 'add.html',
-				'tab' => 'Request a project',
+				'tab' => ($this->userIsAdministrator ? 'Add' : 'Request') . ' a project',
 				'icon' => 'add',
 				'authentication' => true,
 			),
@@ -59,7 +59,6 @@ class projectsDatabase extends frontControllerApplication
 				'icon' => 'pencil',
 				'administrator' => true,
 			),
-			
 		);
 		
 		# Return the actions
