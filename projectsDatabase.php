@@ -223,8 +223,13 @@ class projectsDatabase extends frontControllerApplication
 		# Start the HTML
 		$html = '';
 		
+		# Add editing link for admins
+		if ($this->userIsAdministrator) {
+			$html .= "\n<p class=\"right actions\"><a href=\"{$this->baseUrl}/settings.html\"><img src=\"/images/icons/pencil.png\" alt=\"\" border=\"0\"> Edit</a></p>";
+		}
+		
 		# Show the general ongoing work HTML
-		$html = $this->settings['generalHtml'];
+		$html .= $this->settings['generalHtml'];
 		
 		# Show the HTML
 		echo $html;
