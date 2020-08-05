@@ -71,29 +71,29 @@ class projectsDatabase extends frontControllerApplication
 	{
 		return "
 			CREATE TABLE `administrators` (
-			  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Username' PRIMARY KEY,
-			  `active` enum('','Yes','No') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Yes' COMMENT 'Currently active?',
-			  `privilege` enum('Administrator','Restricted administrator') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Administrator' COMMENT 'Administrator level'
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='System administrators';
+			  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Username' PRIMARY KEY,
+			  `active` enum('','Yes','No') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Yes' COMMENT 'Currently active?',
+			  `privilege` enum('Administrator','Restricted administrator') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Administrator' COMMENT 'Administrator level'
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci COMMENT='System administrators';
 			
 			CREATE TABLE `projects` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '#' PRIMARY KEY,
-			  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Project name',
-			  `client` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT 'For',
-			  `status` enum('proposed','specced','developing','completed','additional') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'proposed' COMMENT 'Status',
+			  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Project name',
+			  `client` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'For',
+			  `status` enum('proposed','specced','developing','completed','additional') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'proposed' COMMENT 'Status',
 			  `startDate` date DEFAULT NULL COMMENT 'Start date',
 			  `finishDate` date DEFAULT NULL COMMENT 'Finish date',
-			  `description` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'Description',
-			  `progress` text COLLATE utf8_unicode_ci COMMENT 'Progress',
+			  `description` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Description',
+			  `progress` text COLLATE utf8mb4_unicode_ci COMMENT 'Progress',
 			  `daysEstimated` int(11) NULL DEFAULT NULL COMMENT 'Days estimated',
 			  `daysSpent` int(11) NOT NULL COMMENT 'Days spent',
-			  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'URL'
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Table of projects';
+			  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'URL'
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci COMMENT='Table of projects';
 			
 			CREATE TABLE `settings` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Automatic key (ignored)' PRIMARY KEY,
-			  `generalHtml` text COLLATE utf8_unicode_ci COMMENT 'General ongoing work'
-			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Settings';
+			  `generalHtml` text COLLATE utf8mb4_unicode_ci COMMENT 'General ongoing work'
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci COMMENT='Settings';
 		";
 	}
 	
