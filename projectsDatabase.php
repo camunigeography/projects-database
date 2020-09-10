@@ -19,6 +19,7 @@ class projectsDatabase extends frontControllerApplication
 			'administrators' => true,
 			'useEditing' => true,
 			'databaseStrictWhere' => true,
+			'tabUlClass' => 'tabsflat',
 		);
 		
 		# Return the defaults
