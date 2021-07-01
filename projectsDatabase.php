@@ -20,6 +20,7 @@ class projectsDatabase extends frontControllerApplication
 			'useEditing' => true,
 			'databaseStrictWhere' => true,
 			'tabUlClass' => 'tabsflat',
+			'truncateValues' => 200,
 		);
 		
 		# Return the defaults
@@ -128,8 +129,9 @@ class projectsDatabase extends frontControllerApplication
 			unset ($projects[$id]['url']);
 			$projects[$id]['status'] = ucfirst ($projects[$id]['status']);
 			unset ($projects[$id]['client']);
-			$projects[$id]['description'] = nl2br (htmlspecialchars ($projects[$id]['description']));
-			$projects[$id]['progress'] = nl2br (htmlspecialchars ($projects[$id]['progress']));
+			
+			$projects[$id]['description'] = nl2br (htmlspecialchars (application::str_truncate ($projects[$id]['description'], $this->settings['truncateValues'], false, false, true, $htmlMode = false)));
+			$projects[$id]['progress'] = nl2br (htmlspecialchars (application::str_truncate ($projects[$id]['progress'], $this->settings['truncateValues'], false, false, true, $htmlMode = false)));
 		}
 		$allowHtml = array ('id', 'name', 'description', 'progress');
 		
@@ -245,6 +247,7 @@ class projectsDatabase extends frontControllerApplication
 		
 		# Define general sinenomine settings
 		$sinenomineExtraSettings = array (
+			'truncateValues' => $this->settings['truncateValues'],
 			'datePicker' => true,
 		);
 		
