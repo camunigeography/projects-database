@@ -94,6 +94,7 @@ class projectsDatabase extends frontControllerApplication
 			
 			CREATE TABLE `settings` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Automatic key (ignored)' PRIMARY KEY,
+			  `frontPageHtml` TEXT NULL COMMENT 'Front page notice',
 			  `generalHtml` text COLLATE utf8mb4_unicode_ci COMMENT 'General ongoing work'
 			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8mb4_unicode_ci COMMENT='Settings';
 		";
@@ -142,6 +143,9 @@ class projectsDatabase extends frontControllerApplication
 		$html .= "\n<p>The table below shows a list of all confirmed projects" . ($earliestDate ? ' since ' . date ('F Y', strtotime ($earliestDate . ' 12:00:00')) : '') . '.</p>';
 		if ($this->settings['generalHtml']) {
 			$html .= "\n<p>This does not include <a href=\"{$this->baseUrl}/general.html\">general, ongoing work</a>.</p>";
+		}
+		if ($this->settings['frontPageHtml']) {
+			$html .= $this->settings['frontPageHtml'];
 		}
 		$html .= "\n<p>You can <a href=\"{$this->baseUrl}/add.html\">request a project</a>.</p>";
 		$tableHeadingSubstitutions = $this->databaseConnection->getHeadings ($this->settings['database'], $this->settings['table']);
