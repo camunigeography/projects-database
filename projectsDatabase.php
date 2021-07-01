@@ -146,7 +146,7 @@ class projectsDatabase extends frontControllerApplication
 		$html .= "\n<p>You can <a href=\"{$this->baseUrl}/add.html\">request a project</a>.</p>";
 		$tableHeadingSubstitutions = $this->databaseConnection->getHeadings ($this->settings['database'], $this->settings['table']);
 		$html .= "\n" . '<!-- Enable table sortability: --><script language="javascript" type="text/javascript" src="/sitetech/sorttable.js"></script>';
-		$html .= application::htmlTable ($projects, $tableHeadingSubstitutions, 'lines sortable" id="sortable', $keyAsFirstColumn = false, false, $allowHtml, false, false, $addRowKeyClasses = true);
+		$html .= application::htmlTable ($projects, $tableHeadingSubstitutions, 'lines sortable" id="sortable', $keyAsFirstColumn = false, false, $allowHtml, false, $addCellClasses = true, $addRowKeyClasses = true);
 		
 		# Show the HTML
 		echo $html;

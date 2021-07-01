@@ -1,4 +1,8 @@
 #projectsdatabase th {background-color: #f7f7f7;}
+#projectsdatabase table {max-width: 100%;}
+#projectsdatabase table td {font-size: 13px;}
+#projectsdatabase table td.name {width: 10%;}
+#projectsdatabase table td.description, #projectsdatabase table td.progress {word-break: break-all;}
 #projectsdatabase table tr.completed td {background-color: #d1f7cc;}
 #projectsdatabase table tr.specced td {background-color: #fbffaa;}
 #projectsdatabase table tr.developing td {background-color: #ffcc99;}
