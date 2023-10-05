@@ -82,7 +82,7 @@ class projectsDatabase extends frontControllerApplication
 			  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '#' PRIMARY KEY,
 			  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Project name',
 			  `client` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'For',
-			  `status` enum('proposed','specced','developing','completed','additional') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'proposed' COMMENT 'Status',
+			  `status` enum('proposed','specced','developing','completed','additional','cancelled') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'proposed' COMMENT 'Status',
 			  `startDate` date DEFAULT NULL COMMENT 'Start date',
 			  `finishDate` date DEFAULT NULL COMMENT 'Finish date',
 			  `description` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Description',
