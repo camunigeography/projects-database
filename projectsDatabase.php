@@ -76,7 +76,7 @@ class projectsDatabase extends frontControllerApplication
 			  `username` varchar(255) NOT NULL COMMENT 'Username' PRIMARY KEY,
 			  `active` enum('','Yes','No') NOT NULL DEFAULT 'Yes' COMMENT 'Currently active?',
 			  `privilege` enum('Administrator','Restricted administrator') NOT NULL DEFAULT 'Administrator' COMMENT 'Administrator level'
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='System administrators';
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='System administrators';
 			
 			CREATE TABLE `projects` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '#' PRIMARY KEY,
@@ -90,13 +90,13 @@ class projectsDatabase extends frontControllerApplication
 			  `daysEstimated` int(11) NULL DEFAULT NULL COMMENT 'Days estimated',
 			  `daysSpent` int(11) NOT NULL COMMENT 'Days spent',
 			  `url` varchar(255) DEFAULT NULL COMMENT 'URL'
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Table of projects';
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table of projects';
 			
 			CREATE TABLE `settings` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Automatic key (ignored)' PRIMARY KEY,
 			  `frontPageHtml` TEXT NULL COMMENT 'Front page notice',
 			  `generalHtml` text COMMENT 'General ongoing work'
-			) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Settings';
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Settings';
 		";
 	}
 	
