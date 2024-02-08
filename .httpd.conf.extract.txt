@@ -4,14 +4,10 @@
 #   
 #   # Projects database system
 #   Include /path/to/projects-database/.httpd.conf.extract.txt
-#   Use MacroProjectsDatabase "/path/to/projects-database" "/path/to/projects-database/:/path/to/php/libraries/"
+#   Use MacroProjectsDatabase "/path/to/projects-database"
 
 
-<Macro MacroProjectsDatabase $applicationBaseUrl $includePath>
-	
-	<Location $applicationBaseUrl>
-		php_value include_path "$includePath"
-	</Location>
+<Macro MacroProjectsDatabase $applicationBaseUrl>
 	
 	Use MacroFrontControllerApplication "$applicationBaseUrl/" "Projects database"
 	

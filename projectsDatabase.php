@@ -1,9 +1,6 @@
 <?php
 
 # Class to create a projects database system
-
-
-require_once ('frontControllerApplication.php');
 class projectsDatabase extends frontControllerApplication
 {
 	# Function to assign defaults additional to the general application defaults
