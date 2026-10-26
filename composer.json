@@ -5,9 +5,9 @@
     "license": "GPL-3.0-only",
     "minimum-stability": "stable",
     "require": {
-        "libpurecontent/frontcontrollerapplication": "^1.13",
-        "libpurecontent/ultimateform": "^1.29",
-        "libpurecontent/application": "^1.9"
+        "libpurecontent/frontcontrollerapplication": "^1.20",
+        "libpurecontent/ultimateform": "^1.32",
+        "libpurecontent/application": "^1.10"
     },
     "autoload": {
         "files": ["projectsDatabase.php"]
