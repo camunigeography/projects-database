@@ -129,7 +129,7 @@ class projectsDatabase extends frontControllerApplication
 			unset ($projects[$id]['client']);
 			
 			$projects[$id]['description'] = nl2br (htmlspecialchars (application::str_truncate ($projects[$id]['description'], $this->settings['truncateValues'], false, false, true, $htmlMode = false)));
-			$projects[$id]['progress'] = nl2br (htmlspecialchars (application::str_truncate ($projects[$id]['progress'], $this->settings['truncateValues'], false, false, true, $htmlMode = false)));
+			$projects[$id]['progress'] = (!is_null ($projects[$id]['progress']) ? nl2br (htmlspecialchars (application::str_truncate ($projects[$id]['progress'], $this->settings['truncateValues'], false, false, true, $htmlMode = false))) : $projects[$id]['progress']);
 		}
 		$allowHtml = array ('id', 'name', 'description', 'progress');
 		
